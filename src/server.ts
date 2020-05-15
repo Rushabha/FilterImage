@@ -14,14 +14,14 @@ import { filterImageFromURL, deleteLocalFiles } from './util/util';
   app.use(bodyParser.json());
 
   // Enabled CORS
-  app.use('/', (req, res, next) => {
+  app.use('/', (req: express.Request, res: express.Response, next: express.NextFunction) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
     next();
   });
 
   // Filter Image
-  app.get("/filteredimage", async (req, res, next) => {
+  app.get("/filteredimage", async (req: express.Request, res: express.Response, next: express.NextFunction) => {
     let { image_url } = req.query;
 
     // Validate image_url
@@ -46,7 +46,7 @@ import { filterImageFromURL, deleteLocalFiles } from './util/util';
 
   // Root Endpoint
   // Displays a simple message to the user
-  app.get("/", async (req, res) => {
+  app.get("/", async (req: express.Request, res: express.Response) => {
     res.send("try GET /filteredimage?image_url={{}}")
   });
 
