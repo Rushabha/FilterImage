@@ -21,7 +21,7 @@ import { filterImageFromURL, deleteLocalFiles } from './util/util';
   });
 
   // Filter Image
-  app.get("/filteredimage", async (req: express.Request, res: express.Response, next: express.NextFunction) => {
+  app.get("/filteredimage", async (req: express.Request, res: express.Response) => {
     let { image_url } = req.query;
 
     // Validate image_url
